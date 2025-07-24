@@ -115,12 +115,10 @@
       if (!div.classList.contains("activo")) return;
 
       if (div.classList.contains("aprobado")) {
-        // Desaprobar ramo
         div.classList.remove("aprobado");
         estado[id] = false;
         bloquearDependientes(id);
       } else {
-        // Aprobar ramo
         div.classList.add("aprobado");
         estado[id] = true;
         desbloquearRamosDependientes(id);
@@ -145,7 +143,7 @@
         if (depende.includes(id)) {
           r.classList.remove("activo", "aprobado");
           estado[r.dataset.id] = false;
-          bloquearDependientes(r.dataset.id); // recursivamente bloquear dependientes
+          bloquearDependientes(r.dataset.id); 
         }
       });
     }
